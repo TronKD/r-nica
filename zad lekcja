@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cstdlib>
+#include <fstream>
+
+using namespace std;
+
+int main() {
+	
+	int t[1001];
+ 	int r[1001];
+ 	int liczba;
+ 	int rk;
+ 	int r1;
+ 	int r2;
+ 	
+    fstream plik;
+    
+ 
+    plik.open("bledne.txt", ios::in);
+    if(plik.good() == true){
+        while(!plik.eof()){
+        	plik >> liczba;
+            for (int i=0; i<liczba; i++)
+   				plik >> t[i]; 
+        }
+        plik.close();
+    }
+    if (r1 == r2){
+		r = r1;
+	}
+	else{
+		rk = t[liczba-1] - t[liczba-2];
+	}
+	if (rk==r1){ 
+        r = r1;
+	}
+	if (rk==r2){
+    	r= r2;
+ 	}
+ 	else{
+    	r= rk;
+	} 	
+    ofstream zapis("dane.txt");	
+	zapis<<rk;
+	zapis.close(); 
+
+	return 0;
+}
